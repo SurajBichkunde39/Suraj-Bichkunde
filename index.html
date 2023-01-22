@@ -1,62 +1,102 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Suraj Bichkunde</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./static_code/main.css">
 </head>
-<body>
-    <div id="info-basic_info">
-        <h3>Suraj Bichkunde</h3>
-        <p>+91-9765875397 | surajbichkunde@gmail.com <br>
-            <a href="https://github.com/SurajBichkunde39">Github</a>
-            <a href="https://www.linkedin.com/in/suraj-bichkunde-786729178/">linkedin</a>
-        </p>
-    </div>
-    <div id="photo-profile">
-        <img src="./static/Profile.jpg" width="200" height="200">
-    </div>
-    <hr>
-    <div>
-        <h3>EDUCATION</h3>
-        <p><h4>Secondary School - </h4> Lal Bahadur Shastri Mahavidyalaya | May 2015 | Udgir India | 95.4%</p>
-        <p><h4>Higher Secondary - </h4> Rajarshi Shahu College | May 2017 | Latur India | 77% </p>
-        <p><h4>BE in Computer Science - </h4> Smt. Kashibai Navale College of Engineering | May 2021</p>
-    </div>
-    <hr>
-    <div>
-        <h3>EXPERIENCE</h3>
-        <h4> Information Security Intern, PTC Pune, India.</h4>
-        <p>SEP 2020 - JAN 2021</p>
-        <p>- Worked with the team who deals with all the network security.<br> 
-        - Got hands-on experience with various network security services and tools, like Nexpose-Rapid7, Splunk, Cylance,etc.</p>
-    
-        <h4>Android Developer, Raja Software Labs</h4>
-        <p>JUN 2021 - PRESENT</p>
-        <p>- Completed the basic training in android with Java and Kotlin.<br>
-        - Working on the home automation application which is used for controlling different home automation tools like cameras, thermostats, tv etc. 
-        </p>
-    </div>
-    <hr>
-    <div>
-        <h3>PROJECTS</h3>
-        <h4>Volcanic Eruption Prediction</h4>
-        <p>
-        - Python, sklearn, xgboost, Flask <br>
-        - The model uses sensor data to predict the next volcanic eruption. The training and testing data is provided by the National Institute of Geophysics and Volcanology. Dataset size on filesystem (29GB+)<br>
-        - Heroku app - <a href="https://veruptionprediction.herokuapp.com">https://veruptionprediction.herokuapp.com</a><br>
-        - project on github - <a href="https://github.com/SurajBichkunde39/Volcanic-Eruption-Prediction">https://github.com/SurajBichkunde39/Volcanic-Eruption-Prediction</a> <br>
-        - Medium story for project - <a href="https://sbichkunde.medium.com/volcanic-eruption-prediction-ca20d72b4a87">https://sbichkunde.medium.com/volcanic-eruption-prediction-ca20d72b4a87</a> <br>
-        </p>
 
-        <h4>YelpCamp - A Social media for Campground Lovers</h4>
-        <p>
-        - HTML , CSS , Javascript , node.js , Express.js <br>
-        - Full Stack Web Development Course Project <br>
-        - A platform to share the experience on different camping site for all other visitors .<br>
-        - Deployed on Heroku - <a href="https://obscure-retreat-11239.herokuapp.com/">https://obscure-retreat-11239.herokuapp.com/</a><br>
-        - project on github - <a href="https://github.com/SurajBichkunde39/YelpCamp-CampingWebsite">https://github.com/SurajBichkunde39/YelpCamp-CampingWebsite</a>
-        </p>
-    </div>
-    <hr>
+<body>
+    <div class="container text-center">
+        <div class="row align-items-start">
+            <div class="col col-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="./static/Profile.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Suraj Bichkunde</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">+91-9765875397 | surajbichkunde@gmail.com</h6>
+                        <a href="https://github.com/SurajBichkunde39" class="card-link">Github</a>
+                        <a href="https://www.linkedin.com/in/suraj-bichkunde-786729178/" class="card-link">linkedin</a>
+                        <p class="card-text">Software Engineer who writes simple, clean yet performant solutions.
+                            Learning and experimenting with new things every day.</p>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item" role="button" href="#education-card" data-bs-toggle="collapse"
+                            aria-expanded="false" aria-controls="education-card">EDUCATION</li>
+                        <div class="collapse" id="education-card">
+                            <div class="card mb-3" style="max-width: 18rem;">
+                                <div class="card-header">EDUCATION</div>
+                                <div class="card-body">
+                                    <h5 class="card-title">BE in Computer Science</h5>
+                                    <p class="card-text">Smt. Kashibai Navale College of Engineering | May 2021</p>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Higher Secondary</h5>
+                                    <p class="card-text">Rajarshi Shahu College | May 2017 | Latur India | 77%</p>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Secondary School</h5>
+                                    <p class="card-text">Lal Bahadur Shastri Mahavidyalaya | May 2015 | Udgir India |
+                                        95.4%</p>
+                                </div>
+                            </div>
+                        </div>
+                        <li class="list-group-item" role="button" href="#experience-card" data-bs-toggle="collapse"
+                            aria-expanded="false" aria-controls="experience-card">EXPERIENCE</li>
+                        <div class="collapse" id="experience-card">
+                            <div class="card mb-3" style="max-width: 18rem;">
+                                <div class="card-header">EXPERIENCE</div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Information Security Intern</h5>
+                                    <h6 class="card-subtitle">PTC Pune, India.</h6>
+                                    <p class="card-text">Worked with the team who deals with all the network
+                                        security.Got hands-on experience with various network security services and
+                                        tools, like Nexpose-Rapid7, Splunk, Cylance,etc.</p>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Android Developer</h5>
+                                    <h6 class="card-subtitle">Raja Software Labs</h6>
+                                    <p class="card-text">Working on the home automation application which is used for
+                                        controlling different home automation tools like cameras, thermostats, tv etc.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <ul class="nav nav-tabs card-header-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="true" href="#">Experience</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Projects</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled">Technical Blogs</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled">Non-Technical Blogs</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Add Details</h5>
+                        <p class="card-text">TDOD("Add details")</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 </body>
+
 </html>

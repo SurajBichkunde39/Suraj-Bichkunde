@@ -1,0 +1,29 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+
+// Drop drafts, keep only "tech" (the default category), newest first.
+// Non-tech articles aren't hidden from the site — they're just kept off
+// this main page so it stays focused. See src/pages/non-tech.astro.
+const articles = (await getCollection('articles', (entry) => !entry.data.draft))
+	.filter((entry) => entry.data.type === 'article' && entry.data.category === 'tech')
+	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="Articles">
+	<h1>Articles</h1>
+	{articles.length === 0 && <p>No articles published yet.</p>}
+	{articles.map((article) => <ArticleCard article={article} />)}
+	<p class="non-tech-link">Also writing about books, movies, math, space, science, and other things I'm learning — <a href={`${base}non-tech/`}>see those here</a>.</p>
+</BaseLayout>
+
+<style>
+	.non-tech-link {
+		margin-top: 2rem;
+		color: #666;
+		font-size: 0.9rem;
+	}
+</style>

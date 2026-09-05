@@ -1,0 +1,36 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// Astro calls this once at build time and generates one static HTML file
+// per object returned here — this is the entire "routing" for articles,
+// there's no server matching URLs at request time.
+export async function getStaticPaths() {
+	const articles = await getCollection('articles');
+	return articles.map((article) => ({
+		params: { slug: article.id }, // article.id = filename without extension
+		props: { article },
+	}));
+}
+
+const { article } = Astro.props;
+const { Content } = await render(article); // turns the markdown body into a renderable component
+---
+
+<BaseLayout title={article.data.title}>
+	<article>
+		<h1>{article.data.title}</h1>
+		<p class="meta">
+			{article.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+			{article.data.series && ` · ${article.data.series}${article.data.part ? ` (part ${article.data.part})` : ''}`}
+		</p>
+		<Content />
+	</article>
+</BaseLayout>
+
+<style>
+	.meta {
+		color: #666;
+		font-size: 0.9rem;
+	}
+</style>

@@ -1,0 +1,58 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+
+// import.meta.env.BASE_URL is Astro's own copy of the `base` value set in
+// astro.config.mjs (currently "/Suraj-Bichkunde"). Every internal link in
+// this project should be built from it instead of a hardcoded "/", so
+// links keep working whether you're on the GitHub Pages project URL or a
+// future custom domain with a different base.
+const base = import.meta.env.BASE_URL;
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<a href={base}>Suraj Bichkunde</a>
+				<a href={`${base}articles/`}>Articles</a>
+			</nav>
+		</header>
+		<main>
+			<slot />
+		</main>
+	</body>
+</html>
+
+<style>
+	body {
+		max-width: 42rem;
+		margin: 0 auto;
+		padding: 1.5rem;
+		font-family: system-ui, sans-serif;
+		line-height: 1.6;
+	}
+	nav {
+		display: flex;
+		gap: 1.5rem;
+		margin-bottom: 2rem;
+		font-weight: 600;
+	}
+	nav a {
+		color: inherit;
+		text-decoration: none;
+	}
+	nav a:hover {
+		text-decoration: underline;
+	}
+</style>

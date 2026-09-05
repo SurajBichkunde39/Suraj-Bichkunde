@@ -1,0 +1,19 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+
+// The counterpart to src/pages/articles/index.astro's "tech" filter —
+// this page exists so non-tech writing is still reachable, just not on
+// the main page competing for attention.
+const articles = (await getCollection('articles', (entry) => !entry.data.draft))
+	.filter((entry) => entry.data.type === 'article' && entry.data.category === 'non-tech')
+	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title="Non-Technical Writing">
+	<h1>Non-Technical Writing</h1>
+	<p>Math, space, science, reviews, and other things I'm learning that aren't about code.</p>
+	{articles.length === 0 && <p>Nothing here yet.</p>}
+	{articles.map((article) => <ArticleCard article={article} />)}
+</BaseLayout>

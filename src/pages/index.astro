@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="Suraj Bichkunde">
+	<h1>Suraj Bichkunde</h1>
+	<p>Senior Android Developer. This site's portfolio page is coming soon.</p>
+	<p><a href={`${base}articles/`}>Read the articles &rarr;</a></p>
+</BaseLayout>

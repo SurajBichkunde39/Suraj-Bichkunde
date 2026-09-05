@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+
+// One real static page per tag (e.g. /tags/space/), generated at
+// build time. No client-side filtering JS needed: every tag page is just
+// an ordinary static HTML file, same as any other page on the site.
+export async function getStaticPaths() {
+	const articles = await getCollection('articles', (entry) => !entry.data.draft);
+	const tags = [...new Set(articles.flatMap((article) => article.data.tags))];
+
+	return tags.map((tag) => ({
+		params: { tag },
+		props: {
+			articles: articles.filter((article) => article.data.tags.includes(tag)),
+		},
+	}));
+}
+
+const { tag } = Astro.params;
+const { articles } = Astro.props;
+---
+
+<BaseLayout title={`Tag: ${tag}`}>
+	<h1>Tag: {tag}</h1>
+	{articles.map((article) => <ArticleCard article={article} />)}
+</BaseLayout>

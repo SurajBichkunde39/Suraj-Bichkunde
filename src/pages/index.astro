@@ -1,11 +1,193 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-
-const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title="Suraj Bichkunde">
-	<h1>Suraj Bichkunde</h1>
-	<p>Senior Android Developer. This site's portfolio page is coming soon.</p>
-	<p><a href={`${base}articles/`}>Read the articles &rarr;</a></p>
+	<header class="hero">
+		<h1>Suraj Bichkunde</h1>
+		<p class="tagline">Senior Android Developer</p>
+		<p class="links">
+			<a href="https://github.com/SurajBichkunde39" target="_blank" rel="noopener noreferrer">GitHub</a>
+			<a href="https://www.linkedin.com/in/suraj-bichkunde-786729178" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+		</p>
+		<p class="summary">
+			5+ years building and scaling apps used by millions of people, most
+			recently focused on server-driven UI and payments architecture. Just
+			joined eBay, working on the TCGPlayer mobile apps.
+		</p>
+	</header>
+
+	<section>
+		<h2>Experience</h2>
+
+		<article class="entry">
+			<h3>Software Development Engineer III &mdash; eBay</h3>
+			<p class="meta">Sep 2026 &ndash; Present</p>
+			<ul>
+				<li>Building the TCGPlayer mobile apps.</li>
+			</ul>
+		</article>
+
+		<article class="entry">
+			<h3>SDE-II (Senior Android Developer) &mdash; <a href="https://play.google.com/store/apps/details?id=com.bt.bms&hl=en_IN" target="_blank" rel="noopener noreferrer">BookMyShow</a></h3>
+			<p class="meta">Jun 2023 &ndash; Sep 2026 &middot; Mumbai, India</p>
+			<h4>Payments &amp; Server-Driven UI</h4>
+			<ul>
+				<li>Owned the Order Summary and Payments flow end to end, starting right after seat selection through payment completion, for an app serving millions of users a day.</li>
+				<li>Built a server-driven UI framework for the Order Summary screen that moved widget display and ordering, styling, offer application, and other business logic out of the app and onto the backend, so product teams could ship changes without an app release. Later extended the same approach to Offers &amp; Payments, cutting UPI and other redirection-based onboarding down to zero Android changes.</li>
+				<li>Added support for 5+ payment instruments, including Amazon Pay Later, CRED Wallet, CVV-less cards, and both native and auto-read OTP flows.</li>
+			</ul>
+
+			<h4>Codebase &amp; Testing</h4>
+			<ul>
+				<li>Led the modernization of legacy Payments modules and helped push that thinking into app-level architecture (API caching, global state management).</li>
+				<li>Built the team's unit testing infrastructure from the ground up and mentored others on writing testable code.</li>
+				<li>Built MockCat, an on-device API mocking tool that started as an internal QA tool and later became an open-source Kotlin Multiplatform toolkit.</li>
+			</ul>
+
+			<h4>Team &amp; Culture</h4>
+			<ul>
+				<li>Gave internal talks on payments architecture, testable code, and MockCat; restarted and hosted the monthly Android meetup.</li>
+				<li>Introduced Detekt for static analysis, designed a shared static-data manager other pods adopted, and was an early advocate for AI-assisted development workflows.</li>
+			</ul>
+		</article>
+
+		<article class="entry">
+			<h3>Software Engineer, Android Developer &mdash; Raja Software Labs</h3>
+			<p class="meta">Jun 2021 &ndash; May 2023 &middot; Pune, India</p>
+			<ul>
+				<li>Worked on <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.chromecast.app&hl=en_IN" target="_blank" rel="noopener noreferrer">Google Home</a>, Google's first-party home automation app with 1B+ Play Store downloads. Focused mostly on the Camera module, owning several features end-to-end.</li>
+				<li>Helped redesign the camera controller module from scratch to make camera features faster and easier to use.</li>
+				<li>Fixed a steady stream of high-priority bugs, crashes, and KPI regressions across the stack: networking (WebRTC, GRPC, Volley), media (ExoPlayer), and DI/testing (Hilt, Espresso).</li>
+			</ul>
+		</article>
+
+		<article class="entry">
+			<h3>Information Security Intern &mdash; PTC</h3>
+			<p class="meta">Sep 2020 &ndash; Jan 2021 &middot; Pune, India</p>
+			<ul>
+				<li>Analyzed weekly threat reports and investigated security alerts using tools like Nexpose-Rapid7, Splunk, and Cylance.</li>
+				<li>Wrote Python scripts to automate repetitive daily and weekly tasks for the team.</li>
+			</ul>
+		</article>
+	</section>
+
+	<section>
+		<h2>Projects</h2>
+
+		<article class="entry">
+			<h3><a href="https://github.com/SurajBichkunde39/Mockcat-KMP" target="_blank" rel="noopener noreferrer">Mockcat</a></h3>
+			<p class="meta">Kotlin Multiplatform, OkHttp, Ktor, Compose, URLSession</p>
+			<ul>
+				<li><strong>Intercept &amp; Mock:</strong> KMP HTTP interception toolkit for Android (OkHttp, Ktor) and iOS (URLSession). Supports static and redirect-style rules keyed by URL, method, headers, and query params. A Compose UI editor lets devs and QA configure mock rules and simulate failures or delays on-device without touching the backend.</li>
+				<li><strong>Logger &amp; UI:</strong> First-party persisted HTTP log viewer (Chucker-style) with a full list/detail experience in Compose, available on both Android and iOS. Ships as ready-to-use library modules: no DI framework required, zero boilerplate to integrate.</li>
+				<li><strong>Tooling:</strong> Gradle plugin for ADB-based mock import, an optional Chucker import helper, and Room-backed persistence for both mocks and logs, making it a complete developer and QA productivity suite.</li>
+			</ul>
+			<p>Started as an internal tool built at BookMyShow for dev/QA use, later evolved and open-sourced as a full standalone KMP toolkit.</p>
+		</article>
+
+		<article class="entry">
+			<h3><a href="https://play.google.com/store/apps/details?id=com.awakened.quiet&hl=en" target="_blank" rel="noopener noreferrer">Quiet: A Minimal Launcher</a></h3>
+			<p class="meta">Kotlin, Android</p>
+			<ul>
+				<li>Designed, built, and published this minimal, distraction-free Android launcher to the Play Store solo, start to finish.</li>
+			</ul>
+		</article>
+	</section>
+
+	<section>
+		<h2>Skills</h2>
+		<dl class="skills">
+			<dt>Languages</dt>
+			<dd>Kotlin, Java, Python</dd>
+			<dt>Android</dt>
+			<dd>Jetpack, Hilt, Coroutines, LiveData, ViewModel, ExoPlayer, WebRTC, GRPC, Volley, Glide</dd>
+			<dt>Architecture</dt>
+			<dd>Server-Driven UI, MVVM, Clean Architecture, API Caching, State Management</dd>
+			<dt>Payments</dt>
+			<dd>UPI, Cards (CVV-less, Native OTP), Mobile Wallets, Pay Later, Payment SDKs (JusPay, GooglePay, Paytm, Simpl)</dd>
+			<dt>Testing</dt>
+			<dd>JUnit, Espresso, Unit Testing, Mock Frameworks</dd>
+			<dt>Tools</dt>
+			<dd>Git, Android Studio, Gradle, CI/CD</dd>
+		</dl>
+	</section>
+
+	<section>
+		<h2>Speaking</h2>
+		<p><a href="https://youtu.be/UNuMpccPKW0" target="_blank" rel="noopener noreferrer">&ldquo;Mobile Apps at Scale: What They Don't Teach You&rdquo;</a> at DroidTribe Pune</p>
+	</section>
+
+	<section>
+		<h2>Education</h2>
+		<p>Bachelor of Engineering in Computer Engineering, 2017&ndash;2021, Maharashtra, India</p>
+	</section>
 </BaseLayout>
+
+<style>
+	.hero {
+		margin-bottom: 2.5rem;
+	}
+	.hero h1 {
+		margin-bottom: 0.25rem;
+	}
+	.tagline {
+		color: #666;
+		margin-top: 0;
+	}
+	.links {
+		display: flex;
+		gap: 1rem;
+		margin: 1rem 0;
+	}
+	.summary {
+		margin-top: 1.5rem;
+	}
+
+	section {
+		margin-bottom: 2.5rem;
+	}
+	section h2 {
+		border-bottom: 1px solid #ddd;
+		padding-bottom: 0.5rem;
+	}
+
+	.entry {
+		margin-bottom: 1.75rem;
+	}
+	.entry h3 {
+		margin-bottom: 0.15rem;
+	}
+	.entry .meta {
+		color: #666;
+		font-size: 0.9rem;
+		margin-top: 0;
+		margin-bottom: 0.75rem;
+	}
+	.entry ul {
+		margin: 0;
+		padding-left: 1.25rem;
+	}
+	.entry li {
+		margin-bottom: 0.4rem;
+	}
+	.entry h4 {
+		font-size: 0.95rem;
+		margin: 1rem 0 0.4rem;
+	}
+	.entry h4:first-of-type {
+		margin-top: 0.5rem;
+	}
+
+	.skills {
+		display: grid;
+		grid-template-columns: 8rem 1fr;
+		gap: 0.5rem 1rem;
+	}
+	.skills dt {
+		font-weight: 600;
+	}
+	.skills dd {
+		margin: 0;
+	}
+</style>

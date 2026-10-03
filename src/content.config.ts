@@ -49,4 +49,23 @@ const articles = defineCollection({
 	}),
 });
 
-export const collections = { articles };
+// A separate collection (not a new `type` on articles) because a movie's
+// frontmatter has a different shape — where/how it was watched instead of
+// tags/series/summary — and keeping it apart means movies never show up in
+// article listings, tag pages, or /non-tech/. The review itself is the
+// markdown body of each file.
+const movies = defineCollection({
+	loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/movies' }),
+
+	schema: z.object({
+		title: z.string(),
+		date: z.coerce.date(), // when I watched it, not the release date
+		place: z.string(), // theater name, OTT service, or website, e.g. "PVR Phoenix", "Netflix"
+		// What kind of place `place` is — shown as a small label and handy
+		// for filtering later ("everything I watched in theaters").
+		medium: z.enum(['theater', 'ott', 'web']),
+		draft: z.boolean().default(false), // true = hidden from the movies page
+	}),
+});
+
+export const collections = { articles, movies };

@@ -1,0 +1,17 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import MovieEntry from '../components/MovieEntry.astro';
+
+// Every movie and its full review on one page, most recently watched first.
+// Not linked from the nav or any other page yet — reachable only at /movies/.
+const movies = (await getCollection('movies', (entry) => !entry.data.draft))
+	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title="Movies">
+	<h1>Movies</h1>
+	<p>Movies I've watched, where I watched them, and what I thought.</p>
+	{movies.length === 0 && <p>Nothing here yet.</p>}
+	{movies.map((movie) => <MovieEntry movie={movie} />)}
+</BaseLayout>

@@ -1,0 +1,41 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+
+interface Props {
+	movie: CollectionEntry<'movies'>;
+}
+
+const { movie } = Astro.props;
+const { Content } = await render(movie); // the review is the markdown body
+
+// id = filename, so a single movie can be linked as /movies/#<filename>
+const mediumLabel = { theater: 'Theater', ott: 'OTT', web: 'Web' }[movie.data.medium];
+---
+
+<article class="movie" id={movie.id}>
+	<h2><a href={`#${movie.id}`}>{movie.data.title}</a></h2>
+	<p class="meta">
+		{movie.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+		{` · ${movie.data.place} (${mediumLabel})`}
+	</p>
+	<Content />
+</article>
+
+<style>
+	.movie {
+		border-bottom: 1px solid #ddd;
+		padding: 1rem 0;
+	}
+	.movie h2 {
+		margin: 0 0 0.25rem;
+	}
+	.movie h2 a {
+		color: inherit;
+		text-decoration: none;
+	}
+	.meta {
+		color: #666;
+		font-size: 0.9rem;
+		margin: 0 0 0.5rem;
+	}
+</style>

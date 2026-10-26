@@ -33,4 +33,5 @@ npm run preview   # serve the production build locally
 - `src/content.config.ts` — the schema every article's frontmatter is validated against.
 - `src/content/articles/` — the articles themselves (flat folder; `tags` do the organizing, not subfolders).
 - `src/pages/` — the routes: `/articles/` (tech listing), `/articles/[slug]/` (one article), `/tags/[tag]/` (per-tag listing), `/non-tech/` (non-technical writing, kept off the main listing).
+- `roadmap/` — personal learning roadmap and log (plain markdown, not part of the built site). Start at `roadmap/README.md`.
 - `public/apps/awakened/` — privacy-policy pages linked from Play Store app listings. These are plain static files, unrelated to the content system — don't move or rename them.

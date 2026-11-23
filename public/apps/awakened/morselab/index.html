@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morse Lab: Morse Code Translator</title>
+    <meta name="description" content="Morse code translator and decoder for Android: hear it as a CW tone or telegraph sounder, learn with a built-in Morse chart, export WAV. Offline, no ads, no tracking.">
+    <style>
+        :root {
+            --teal: #006a6a;
+            --deep: #004f4f;
+            --amber: #ffb870;
+            --bg: #f6f8f8;
+            --card: #ffffff;
+            --text: #1b1f1f;
+            --muted: #4a5555;
+            --line: #dde4e4;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0f1414;
+                --card: #182020;
+                --text: #e3eaea;
+                --muted: #a9b6b6;
+                --line: #2a3535;
+            }
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        header {
+            background: linear-gradient(180deg, var(--teal), var(--deep));
+            color: #fff;
+            padding: 56px 16px 64px;
+            text-align: center;
+        }
+
+        header svg { width: 96px; height: 96px; }
+
+        h1 { margin: 16px 0 4px; font-size: 2.4rem; }
+
+        .morse {
+            font-family: ui-monospace, Menlo, monospace;
+            color: var(--amber);
+            letter-spacing: 0.2em;
+        }
+
+        .tagline { margin: 12px auto 28px; max-width: 560px; opacity: 0.9; }
+
+        .play {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 999px;
+            background: var(--amber);
+            color: #2b1700;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .play:hover { filter: brightness(1.05); }
+
+        main { max-width: 860px; margin: -32px auto 0; padding: 0 16px 48px; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+        }
+
+        section {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 20px 22px;
+        }
+
+        h2 { margin: 0 0 8px; font-size: 1.1rem; color: var(--teal); }
+
+        @media (prefers-color-scheme: dark) {
+            h2 { color: var(--amber); }
+        }
+
+        ul { margin: 0; padding-left: 18px; color: var(--muted); }
+
+        footer {
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.9rem;
+            padding: 0 16px 40px;
+        }
+
+        footer a { color: inherit; }
+    </style>
+</head>
+
+<body>
+    <header>
+        <svg viewBox="0 0 108 108" aria-hidden="true">
+            <rect width="108" height="108" rx="24" fill="#006a6a" stroke="rgba(255,255,255,.25)" />
+            <circle cx="34" cy="54" r="7" fill="#ffb870" />
+            <rect x="51" y="47" width="30" height="14" rx="7" fill="#fff" />
+        </svg>
+        <h1>Morse Lab</h1>
+        <div class="morse" aria-hidden="true">-- --- .-. ... .</div>
+        <p class="tagline">A precise Morse code translator for Android. Translate and decode Morse, hear it as a real
+            CW tone or telegraph sounder, and learn with a built-in Morse chart.</p>
+        <a class="play" href="https://play.google.com/store/apps/details?id=dev.suraj.morselab">Get it on Google Play</a>
+    </header>
+
+    <main>
+        <div class="grid">
+            <section>
+                <h2>Translate both ways</h2>
+                <ul>
+                    <li>Text to Morse live as you type</li>
+                    <li>A forgiving decoder for Morse to text</li>
+                    <li>Prosigns like &lt;SK&gt;, &lt;AR&gt; and &lt;BT&gt;, plus accented letters</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Hear it right</h2>
+                <ul>
+                    <li>Clean CW tone or telegraph sounder</li>
+                    <li>5–60 WPM with Farnsworth spacing</li>
+                    <li>"PARIS" timing, exact to the audio sample</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Learn Morse code</h2>
+                <ul>
+                    <li>Searchable Morse chart: tap any code to hear it</li>
+                    <li>Guides to prosigns, timing and learning by sound</li>
+                    <li>The history of Morse code</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Export</h2>
+                <ul>
+                    <li>Copy, share or save the Morse as text</li>
+                    <li>Save the audio as a WAV file</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Private by design</h2>
+                <ul>
+                    <li>Works fully offline</li>
+                    <li>No account, ads, analytics or tracking</li>
+                    <li>No permissions requested</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <a href="privacypolicy.html">Privacy policy</a> ·
+        <a href="mailto:surajbichkunde@gmail.com">Contact</a>
+    </footer>
+</body>
+
+</html>
